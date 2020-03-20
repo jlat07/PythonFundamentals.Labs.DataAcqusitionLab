@@ -11,7 +11,6 @@ while file_counter < 39:
     req = urllib.request.Request(url, headers=headers)
     file_name = './location_'+str(file_counter)+'.json'
     
-    ##parsing response
     with urllib.request.urlopen(req) as f:
         data = json.load(f)
     
