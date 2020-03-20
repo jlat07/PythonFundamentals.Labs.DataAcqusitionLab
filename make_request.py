@@ -1,13 +1,14 @@
 import urllib.request
 import json
+import os
 
 
 offset_counter = 1
 file_counter = 0
 
 while file_counter < 39:
-    url = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/locations?location&limt=1000&' + 'offset=' + str(offset_counter)
-    headers = {'token': 'XedyBNDLDGtaqOCjNDlpEBYOyGyRlRvc'}
+    url = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/locations?location&limit=1000&' + 'offset=' + str(offset_counter)
+    headers = {os.environ.get('token')}
     req = urllib.request.Request(url, headers=headers)
     file_name = './location_'+str(file_counter)+'.json'
     
